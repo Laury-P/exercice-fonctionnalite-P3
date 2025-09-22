@@ -8,8 +8,14 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.openclassrooms.myrepo.R;
 import com.openclassrooms.myrepo.model.Task;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Un adaptateur pour afficher la liste de tâches dans un RecyclerView.
@@ -41,6 +47,8 @@ public class TaskRecyclerViewAdapter extends ListAdapter<Task, TaskRecyclerViewA
     static class ViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView factTextView;
+        private final TextView dateTextView;
+        private final LinearProgressIndicator progressIndicator;
 
         /**
          * Constructeur du ViewHolder.
@@ -48,6 +56,8 @@ public class TaskRecyclerViewAdapter extends ListAdapter<Task, TaskRecyclerViewA
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             factTextView = itemView.findViewById(R.id.task_description);
+            dateTextView = itemView.findViewById(R.id.task_duetime);
+            progressIndicator = itemView.findViewById(R.id.progress_horizontal);
         }
 
         /**
@@ -57,7 +67,27 @@ public class TaskRecyclerViewAdapter extends ListAdapter<Task, TaskRecyclerViewA
          */
         public void bind(Task task) {
             factTextView.setText(task.getDescription());
+
+            SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE dd MMMM yyyy");
+            String formattedDate = dateFormat.format(task.getDueTime());
+            dateTextView.setText("Date limite: " + formattedDate);
+
+            int progress = calculateProgress(task.getDueTime());
+            progressIndicator.setProgress(progress);
         }
+    }
+
+    /**
+     * Calcule le pourcentage de progression en fonction de la date limite.
+     *
+     * @param dateLimite La date limite de la tâche.
+     * @return Le pourcentage de progression.
+     */
+    private static int calculateProgress(Date dateLimite) {
+        Calendar deadline = Calendar.getInstance();
+        deadline.setTime(dateLimite);
+        int daysDifference = (int) TimeUnit.MILLISECONDS.toDays(deadline.getTimeInMillis() - Calendar.getInstance().getTimeInMillis());
+        return 100 -(daysDifference*10);
     }
 
     /**
