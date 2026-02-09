@@ -1,27 +1,36 @@
-# Initialisation d’un projet Android avec Git
+# Amélioration fonctionnelle d’une application de gestion de tâches
 
 ## 📌 Contexte pédagogique
-Ce projet correspond à un **exercice entièrement guidé** réalisé dans le cadre de ma formation **Développeuse d’application Android** chez OpenClassrooms.
+Ce projet correspond à un **exercice guidé** réalisé dans le cadre de ma formation **Développeuse d’application Android** chez OpenClassrooms.
 
-L’objectif était de se familiariser avec **Git et GitHub** à partir d’un projet Android déjà existant, en suivant un workflow proche de celui utilisé en environnement professionnel.
+L’objectif était d’améliorer une application existante en appliquant les **principes de la programmation orientée objet (POO)** en Java, sans modifier l’architecture globale de l’application.
 
 ## 🎯 Objectifs de l’exercice
-- Initialiser un dépôt Git local
-- Créer et lier un repository GitHub
-- Configurer correctement un fichier `.gitignore` pour Android
-- Effectuer des commits et pousser le projet sur GitHub
-- Vérifier la bonne synchronisation du dépôt distant
+- Enrichir une fonctionnalité existante de gestion des tâches
+- Ajouter une **date limite** à chaque tâche
+- Définir une date limite par défaut à **10 jours après la création**
+- Mettre en pratique les concepts fondamentaux de la POO
 
-## 🛠️ Ce que j’ai mis en pratique
-- Initialisation d’un repository Git
-- Connexion à un repository GitHub distant
-- Gestion des fichiers ignorés spécifiques à Android Studio
-- Utilisation des commandes Git de base (add, commit, push)
+## 🛠️ Travail réalisé
+- Ajout d’un nouvel attribut représentant la date limite d’une tâche
+- Mise à jour de la logique métier pour calculer automatiquement la date par défaut
+- Adaptation du code existant sans régression fonctionnelle
+- Respect des conventions Java :
+  - camelCase pour les méthodes et variables
+  - PascalCase pour les classes
+- Documentation du code avec des commentaires **Javadoc**
+- Commits réguliers avec messages descriptifs
+
+## 🧱 Concepts mis en pratique
+- Programmation orientée objet (classes, objets, méthodes)
+- Modification d’un code existant
+- Lisibilité et maintenabilité du code
+- Utilisation de Git dans un contexte pédagogique
 
 ## ℹ️ À noter
-- L’exercice était **entièrement guidé**, avec des étapes imposées
-- Aucun développement fonctionnel ou architectural n’était attendu
-- L’objectif principal était la prise en main des outils de versioning
+- L’exercice était **entièrement guidé**
+- Aucun choix d’architecture ou de conception globale n’était attendu
+- Le focus était mis sur la compréhension et l’application des bases de la POO
 
 ## 📚 Cadre de formation
 Formation **Développeur / Développeuse d’application Android** – OpenClassrooms
